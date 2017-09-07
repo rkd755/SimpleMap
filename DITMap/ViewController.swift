@@ -87,5 +87,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         return annotationView
     }
 
+    public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
+        print("Accessary Button tapped!!!!")
+    }
 }
 
