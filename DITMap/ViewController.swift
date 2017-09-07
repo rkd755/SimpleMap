@@ -71,7 +71,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             }
             
             let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
-            if annotation.title! == "부산시민" {
+            if annotation.title! == "부산시민공원" {
             
             
             leftIconView.image = UIImage(named:"abc.jpg")
@@ -85,7 +85,13 @@ class ViewController: UIViewController, MKMapViewDelegate {
             annotationView?.annotation = annotation
         }
         return annotationView
+    
+    }
+    public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
+        print("Accessary Button tapped!!!!")
     }
 
 }
+
+
 
