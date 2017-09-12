@@ -52,7 +52,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         let a = ViewPoint(coordinate: CLLocationCoordinate2D(latitude: 35.166096, longitude: 129.072616), title: "DIT 동의과학대학교", subtitle: "나의 꿈이 자라는 곳")
         let b = ViewPoint(coordinate: CLLocationCoordinate2D(latitude: 35.168424, longitude: 129.057823), title: "부산 시민공원", subtitle: "포켓몬 GO")
-        
+        //
         myMapView.addAnnotations([a, b])
         
         myMapView.delegate = self
