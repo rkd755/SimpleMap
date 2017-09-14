@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController, MKMapViewDelegate {
+    var titleName = ""
     @IBOutlet weak var myMapView: MKMapView!
 
     override func viewDidLoad() {
@@ -80,8 +81,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
 
     public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
+
+        print("Accessary Button tapped!!!!")
         
+        let viewAnno = view.annotation
+        let viewTitle: String = ((viewAnno?.title)!)!
+        let viewSubTitle: String = ((viewAnno?.subtitle)!)!
+        titleName = viewTitle
         
+        print("\(viewTitle) \(viewSubTitle)")
+
         
         if control == view.rightCalloutAccessoryView{
             
@@ -89,16 +98,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         }
         
         
-//------------------------------------------------------
-//        print("Accessary Button tapped!!!!")
-//        
-//        let viewAnno = view.annotation
-//        let viewTitle: String = ((viewAnno?.title)!)!
-//        let viewSubTitle: String = ((viewAnno?.subtitle)!)!
-//        
-//        print("\(viewTitle) \(viewSubTitle)")
-//        
-//
+        
+
 //        let ac = UIAlertController(title: viewTitle, message: viewSubTitle, preferredStyle: .actionSheet)
 //        
 //        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -109,6 +110,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailVC = segue.destination as! DetailViewController
+        detailVC.titleName = titleName
     }
 }
 
